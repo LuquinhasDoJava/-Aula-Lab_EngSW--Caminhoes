@@ -9,6 +9,10 @@ public class MarcaService {
 
     private MarcaRepository repository;
 
+    public MarcaService(MarcaRepository repository){
+        this.repository = repository
+    }
+
     public void salvar(Marca marca) {
         repository.save(marca);
     }
@@ -25,3 +29,4 @@ public class MarcaService {
         repository.deleteById(id);
     }
 }
+

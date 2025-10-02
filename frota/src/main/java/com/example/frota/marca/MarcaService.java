@@ -10,7 +10,7 @@ public class MarcaService {
     private MarcaRepository repository;
 
     public MarcaService(MarcaRepository repository){
-        this.repository = repository
+        this.repository = repository;
     }
 
     public void salvar(Marca marca) {

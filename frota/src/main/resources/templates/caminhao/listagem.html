@@ -1,51 +1,56 @@
 <!DOCTYPE html>
+
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Cadastro de Caminhão</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
+<head th:replace="~{fragmentos/head :: head('Listagem Caminhão')}"></head>
 <body>
+<header th:replace="~{fragmentos/header :: header(activePage='Caminhao')}"></header>
+    <div class="container-fluid" style="max-width: 900px; margin: 0 auto;">
+        <h2 class="text-center"
+            th:text="${caminhao!= null} ? 'Editar Caminhão' : 'Lista Caminhão'"></h2>
+        <div th:if="${message != null}"
+             class="alert alert-success alert-dismissible fade show text-center"
+             role="alert">
+            [[${message}]]
+            <button type="button" class="close btn-sm" data-dismiss="alert"
+                    aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+    </div>
+    <a href="/caminhao/formulario">Novo</a>
+    <div th:if="${lista.size() > 0}">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Modelo</th>
+                <th>Placa</th>
+                <th>Ano</th>
+                <th>Carga Máxima</th>
+                <th>Marca</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="caminhao : ${lista}">
+                <td th:text="${caminhao.id}">ID</td>
+                <td th:text="${caminhao.modelo}">Modelo</td>
+                <td th:text="${caminhao.placa}">Placa</td>
+                <td th:text="${caminhao.ano}">Ano</td>
+                <td th:text="${caminhao.cargaMaxima}">Carga Máxima</td>
+                <td th:text="${caminhao.marca}">Marca</td>
 
-<div class="container mt-4">
-    <h1>Lista de Caminhões</h1>
-
-    <a href="/caminhao/formulario" class="btn btn-success mb-3">Novo Caminhão</a>
-
-    <table class="table table-bordered table-hover">
-        <thead class="table-dark">
-        <tr>
-            <th>Marca</th>
-            <th>Modelo</th>
-            <th style="width: 150px;">Ações</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="caminhao : ${lista}">
-            <td th:text="${caminhao.marca}">Marca</td>
-            <td th:text="${caminhao.modelo}">Modelo</td>
-            <td>
-                <a th:href="@{/caminhao/formulario(id=${caminhao.id})}" class="btn btn-primary btn-sm">Editar</a>
-
-                <form th:action="@{/caminhao}" method="post" style="display:inline;">
-                    <input type="hidden" name="_method" value="delete">
-                    <input type="hidden" name="id" th:value="${caminhao.id}">
-                    <input type="submit" class="btn btn-danger btn-sm" value="Excluir"
-                           onclick="return confirm('Tem certeza que deseja excluir?');">
-                </form>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+                <td><a th:href="@{'/caminhao/formulario?id=' + ${caminhao.id}}"
+                       title="Editar o Caminhao"
+                       class="fa-regular fa-pen-to-square icon-dark"></a> &nbsp;
+                    <a th:href="@{'/caminhao/delete/' + ${caminhao.id}}"
+                       th:filmeTitle="${caminhao.placa}" id="btnDelete"
+                       title="Apague este caminhao"
+                       class="fa-regular fa-trash-can icon-dark btn-delete"></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
-
-<footer class="text-center mt-4 mb-4">
-    <small>© 2025 Minha Frota</small>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+<div th:replace="fragmentos/footer :: footer"></div>
 </body>
 </html>

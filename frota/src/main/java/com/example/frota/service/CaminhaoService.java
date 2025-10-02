@@ -14,22 +14,18 @@ public class CaminhaoService {
     @Autowired
     private CaminhaoRepository caminhaoRepository;
 
-    // Método para listar todos os caminhões
     public List<Caminhao> listarTodos() {
         return caminhaoRepository.findAll();
     }
 
-    // Método para buscar um caminhão por ID
     public Optional<Caminhao> buscarPorId(Long id) {
         return caminhaoRepository.findById(id);
     }
 
-    // Método para salvar um caminhão (criar ou atualizar)
-    public Caminhao salvar(Caminhao caminhao) {
-        return caminhaoRepository.save(caminhao);
+    public void salvar(Caminhao caminhao) {
+        caminhaoRepository.save(caminhao);
     }
 
-    // Método para excluir um caminhão
     public void deletar(Long id) {
         caminhaoRepository.deleteById(id);
     }

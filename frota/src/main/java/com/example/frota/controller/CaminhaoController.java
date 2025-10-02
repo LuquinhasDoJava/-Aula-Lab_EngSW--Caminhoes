@@ -35,7 +35,7 @@ public class CaminhaoController {
                 model.addAttribute("caminhao", caminhao.get());
             } else {
                 // Se o caminhão não existir, redireciona de volta à lista
-                return "caminhao/listagem";
+                return "redirect:/caminhao";
             }
         } else {
             // Se não houver ID, estamos criando um novo caminhão
@@ -55,7 +55,6 @@ public class CaminhaoController {
     @PostMapping(params = "_method=delete")
     public String excluirCaminhao(@RequestParam("id") Long id) {
         caminhaoService.deletar(id);  // Chama o serviço para deletar o caminhão
-        return "redirect:/caminhao  ";  // Redireciona para a lista de caminhões
+        return "redirect:/caminhao";  // Redireciona para a lista de caminhões
     }
-
 }

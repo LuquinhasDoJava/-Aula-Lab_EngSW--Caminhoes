@@ -1,11 +1,12 @@
 package com.example.frota.repository;
 
-import com.example.frota.entity.caminhao.Caminhao;
+import com.example.frota.entity.marca.Marca;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
 @Transactional
-public interface CaminhaoRepository extends JpaRepository<Caminhao, Long> {
+public interface MarcaRepository extends JpaRepository<Marca, Long> {
+
 }

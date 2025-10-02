@@ -1,6 +1,6 @@
 package com.example.frota.service;
 
-import com.example.frota.entity.Caminhao;
+import com.example.frota.entity.caminhao.Caminhao;
 import com.example.frota.repository.CaminhaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

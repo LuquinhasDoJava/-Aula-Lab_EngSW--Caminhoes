@@ -2,7 +2,8 @@
 <header th:fragment="header(activePage)">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-			<a class="navbar-brand" href="#"> <i class="fas fa-film me-2"></i>Frota do Lucas</a>
+			<a class="navbar-brand" href="#"> <i class="fa-solid fa-truck"></i>Frota do Lucas</a>
+
 
 
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -19,7 +20,7 @@
 							Início
 					</a></li>
 
-					<!-- Dropdown de Filmes -->
+<!--					&lt;!&ndash; Dropdown de Filmes &ndash;&gt;
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" id="filmesDropdown"
 						role="button" data-bs-toggle="dropdown" aria-expanded="false"
@@ -42,10 +43,10 @@
 								th:href="@{/filmeomdb/buscaromdb}"> <i class="fa fa-imdb" style="font-size:24px"></i> Procurar OMDB
 							</a></li>
 						</ul>
-					</li>
+					</li>-->
 				</ul>
 
-				<div class="d-flex align-items-center">
+<!--				<div class="d-flex align-items-center">
                     <div class="dropdown">
                         <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" 
                            id="dropdownUser" data-bs-toggle="dropdown">
@@ -63,7 +64,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </nav>
